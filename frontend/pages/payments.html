@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iuran DojoTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/members.css">
+</head>
+<body class="dashboard-body">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">DOJO<span>TRACK</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <span class="nav-icon"></span><span>Dashboard</span>
+      </a>
+      <a href="members.html" class="nav-item">
+        <span class="nav-icon"></span><span>Member</span>
+      </a>
+      <a href="attendance.html" class="nav-item">
+        <span class="nav-icon"></span><span>Absensi</span>
+      </a>
+      <a href="payments.html" class="nav-item active">
+        <span class="nav-icon"></span><span>Iuran</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">Keluar</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="dash-header">
+      <div>
+        <p class="dash-greeting">Kelola iuran bulanan</p>
+        <h1 class="dash-title">IURAN</h1>
+      </div>
+      <button class="cta-btn" onclick="openModal()">+ Tambah Tagihan</button>
+    </header>
+
+    <!-- Filter bulan -->
+    <div class="filter-bar">
+      <select class="form-input filter-select" id="filter-month" onchange="loadPayments()">
+        <option value="1">Januari</option>
+        <option value="2">Februari</option>
+        <option value="3">Maret</option>
+        <option value="4">April</option>
+        <option value="5">Mei</option>
+        <option value="6">Juni</option>
+        <option value="7">Juli</option>
+        <option value="8">Agustus</option>
+        <option value="9">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+      </select>
+      <select class="form-input filter-select" id="filter-year" onchange="loadPayments()">
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+      </select>
+      <select class="form-input filter-select" id="filter-status" onchange="loadPayments()">
+        <option value="">Semua Status</option>
+        <option value="lunas">Lunas</option>
+        <option value="nunggak">Nunggak</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+
+    <!-- Rekap stats -->
+    <div class="stats-grid" id="payment-stats" style="margin-bottom:2rem"></div>
+
+    <!-- Tabel -->
+    <div class="dash-section">
+      <div class="dash-section-header">
+        <h2 class="dash-section-title">DATA IURAN</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Bulan</th>
+              <th>Nominal</th>
+              <th>Status</th>
+              <th>Dibayar</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="payment-tbody">
+            <tr><td colspan="6" class="table-loading">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Tambah Tagihan -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">TAMBAH TAGIHAN</h2>
+      <button class="modal-close" onclick="closeModal()">x</button>
+    </div>
+    <div class="modal-body">
+      <div id="modal-error" class="login-error" style="display:none"></div>
+      <div class="form-group">
+        <label class="form-label">Member *</label>
+        <select class="form-input" id="p-member"></select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Bulan *</label>
+          <select class="form-input" id="p-month">
+            <option value="1">Januari</option>
+            <option value="2">Februari</option>
+            <option value="3">Maret</option>
+            <option value="4">April</option>
+            <option value="5">Mei</option>
+            <option value="6">Juni</option>
+            <option value="7">Juli</option>
+            <option value="8">Agustus</option>
+            <option value="9">September</option>
+            <option value="10">Oktober</option>
+            <option value="11">November</option>
+            <option value="12">Desember</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tahun *</label>
+          <select class="form-input" id="p-year">
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nominal (Rp) *</label>
+        <input type="number" class="form-input" id="p-amount" placeholder="150000"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Catatan</label>
+        <input type="text" class="form-input" id="p-notes" placeholder="Opsional"/>
+      </div>
+      <button class="login-btn" onclick="submitPayment()">SIMPAN TAGIHAN</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/payments.js"></script>
+</body>
+</html>

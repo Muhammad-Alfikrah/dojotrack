@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard DojoTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      DOJO<span>TRACK</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item active">
+        <span class="nav-icon"></span>
+        <span>Dashboard</span>
+      </a>
+      <a href="members.html" class="nav-item">
+        <span class="nav-icon"></span>
+        <span>Member</span>
+      </a>
+      <a href="attendance.html" class="nav-item">
+        <span class="nav-icon"></span>
+        <span>Absensi</span>
+      </a>
+      <a href="payments.html" class="nav-item">
+        <span class="nav-icon"></span>
+        <span>Iuran</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">Keluar</button>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ───────────────────────────────────────── -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="dash-header">
+      <div>
+        <p class="dash-greeting">Selamat datang kembali</p>
+        <h1 class="dash-title">Dashboard</h1>
+      </div>
+      <div class="dash-user" id="dash-user">Admin</div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Total Member</p>
+        <p class="stat-value" id="stat-members">—</p>
+        <p class="stat-sub">anggota aktif</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Latihan Hari Ini</p>
+        <p class="stat-value" id="stat-schedule">—</p>
+        <p class="stat-sub">jadwal aktif</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Iuran Bulan Ini</p>
+        <p class="stat-value" id="stat-payments">—</p>
+        <p class="stat-sub">sudah lunas</p>
+      </div>
+      <div class="stat-card stat-card-red">
+        <p class="stat-label">Nunggak</p>
+        <p class="stat-value" id="stat-overdue">—</p>
+        <p class="stat-sub">belum bayar</p>
+      </div>
+    </div>
+
+    <!-- Member terbaru -->
+    <div class="dash-section">
+      <div class="dash-section-header">
+        <h2 class="dash-section-title">Member Terbaru</h2>
+        <a href="members.html" class="see-all">Lihat semua →</a>
+      </div>
+      <div class="table-wrap">
+        <table class="dash-table" id="member-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Sabuk</th>
+              <th>Bergabung</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="member-tbody">
+            <tr><td colspan="4" class="table-loading">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Jadwal latihan -->
+    <div class="dash-section">
+      <div class="dash-section-header">
+        <h2 class="dash-section-title">Jadwal Latihan</h2>
+      </div>
+      <div class="schedule-list" id="schedule-list">
+        <p class="table-loading">Memuat jadwal...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

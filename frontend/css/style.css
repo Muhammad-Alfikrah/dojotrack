@@ -1,0 +1,279 @@
+/* ── RESET & BASE ──────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #e63946;
+  --black: #0a0a0a;
+  --black-2: #080808;
+  --white: #ffffff;
+  --white-dim: rgba(255,255,255,0.5);
+  --white-faint: rgba(255,255,255,0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ──────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 280px;
+  color: rgba(255,255,255,0.025);
+  letter-spacing: 20px;
+  user-select: none;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.red-line {
+  width: 60px;
+  height: 4px;
+  background: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  letter-spacing: 10px;
+  text-align: center;
+  line-height: 1;
+}
+
+.hero-title span {
+  color: var(--red);
+}
+
+.hero-sub {
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: var(--white-dim);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+/* ── KUMITE STAGE ──────────────────────────────────────── */
+.kumite-stage {
+  position: relative;
+  width: 520px;
+  height: 260px;
+  margin-top: 2.5rem;
+  z-index: 2;
+}
+
+.fighter {
+  position: absolute;
+  bottom: 20px;
+}
+
+#fighter-left {
+  left: 40px;
+}
+
+.fighter-right {
+  right: 40px;
+  transform: scaleX(-1);
+}
+
+.ground-line {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--red), transparent);
+}
+
+.scroll-hint {
+  margin-top: 2.5rem;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  z-index: 2;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50% { opacity: 0.7; transform: translateY(4px); }
+}
+
+/* ── SECTIONS ──────────────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.03); 
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+}
+
+.section-dark {
+  background: var(--black-2);
+}
+
+.section-inner {
+  max-width: 800px;
+  width: 100%;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--white-dim);
+  line-height: 1.9;
+  max-width: 520px;
+}
+
+/* ── BELT BADGES ───────────────────────────────────────── */
+.belt-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.belt-badge {
+  padding: 6px 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  transition: all 0.3s ease;
+}
+
+.belt-badge.active,
+.belt-badge:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ── FEATURE GRID ──────────────────────────────────────── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.05);
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: var(--black-2);
+  padding: 2rem 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.feature-card:hover {
+  background: #111;
+}
+
+.feature-icon {
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+  margin-bottom: 1rem;
+}
+
+.feature-name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.feature-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.7;
+}
+
+/* ── CTA BUTTON ────────────────────────────────────────── */
+.cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 15px 40px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+}
+
+/* ── REVEAL ANIMATION ──────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+.reveal:nth-child(5) { transition-delay: 0.4s; }
+.reveal:nth-child(6) { transition-delay: 0.5s; }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DojoTrack Sistem Manajemen Dojo Karate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-text">道場</div>
+
+    <div class="hero-content">
+      <div class="red-line"></div>
+      <h1 class="hero-title">DOJO<span>TRACK</span></h1>
+      <p class="hero-sub">Sistem Manajemen Dojo Karate</p>
+    </div>
+
+    <div class="kumite-stage">
+
+      <!-- Fighter Kiri (putih) -->
+      <svg id="fighter-left" class="fighter" width="130" height="230" viewBox="0 0 130 230">
+        <g fill="#ffffff">
+          <circle cx="65" cy="22" r="15"/>
+          <rect x="54" y="37" width="22" height="58" rx="5"/>
+          <line x1="76" y1="52" x2="125" y2="44" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+          <line x1="54" y1="58" x2="28" y2="80" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+          <line x1="70" y1="95" x2="88" y2="170" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+          <line x1="58" y1="95" x2="36" y2="170" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+          <ellipse cx="88" cy="174" rx="15" ry="6"/>
+          <ellipse cx="36" cy="174" rx="15" ry="6"/>
+        </g>
+      </svg>
+
+      <!-- Fighter Kanan (merah) -->
+      <svg id="fighter-right" class="fighter fighter-right" width="130" height="230" viewBox="0 0 130 230">
+        <g fill="#e63946">
+          <circle cx="65" cy="22" r="15"/>
+          <rect x="54" y="37" width="22" height="58" rx="5"/>
+          <line x1="76" y1="52" x2="125" y2="44" stroke="#e63946" stroke-width="9" stroke-linecap="round"/>
+          <line x1="54" y1="58" x2="28" y2="80" stroke="#e63946" stroke-width="9" stroke-linecap="round"/>
+          <!-- kaki tendang -->
+          <line x1="70" y1="95" x2="95" y2="135" stroke="#e63946" stroke-width="11" stroke-linecap="round"/>
+          <line x1="95" y1="135" x2="118" y2="92" stroke="#e63946" stroke-width="11" stroke-linecap="round"/>
+          <line x1="58" y1="95" x2="36" y2="170" stroke="#e63946" stroke-width="11" stroke-linecap="round"/>
+          <ellipse cx="118" cy="89" rx="15" ry="6"/>
+          <ellipse cx="36" cy="174" rx="15" ry="6"/>
+        </g>
+      </svg>
+
+      <div class="ground-line"></div>
+    </div>
+
+    <p class="scroll-hint">↓ scroll untuk explore</p>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────────────── -->
+  <div class="divider"></div>
+  <section class="section" id="about">
+    <div class="section-inner reveal">
+      <p class="section-label">tentang</p>
+      <h2 class="section-title">KELOLA DOJO<br>DENGAN MUDAH</h2>
+      <p class="section-desc">DojoTrack adalah platform digital untuk manajemen dojo karate dari pendataan anggota, jadwal latihan, absensi, hingga iuran bulanan. Semua dalam satu sistem.</p>
+      <div class="belt-row">
+        <div class="belt-badge active">Putih</div>
+        <div class="belt-badge">Kuning</div>
+        <div class="belt-badge">Hijau</div>
+        <div class="belt-badge">Biru</div>
+        <div class="belt-badge">Coklat</div>
+        <div class="belt-badge">Hitam</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ───────────────────────────────────────────── -->
+  <div class="divider"></div>
+  <section class="section section-dark" id="features">
+    <div style="max-width:900px; width:100%">
+      <div class="section-inner reveal">
+        <p class="section-label">fitur utama</p>
+        <h2 class="section-title">SEMUA YANG<br>KAMU BUTUHKAN</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Member</p>
+          <p class="feature-desc">Kelola data anggota lengkap dengan riwayat kenaikan sabuk</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Jadwal</p>
+          <p class="feature-desc">Atur jadwal latihan, instruktur, dan lokasi dojo</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Absensi</p>
+          <p class="feature-desc">Catat kehadiran tiap latihan dan lihat rekap bulanan</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Iuran</p>
+          <p class="feature-desc">Tracking pembayaran dan status lunas atau nunggak</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Laporan</p>
+          <p class="feature-desc">Generate laporan PDF absensi dan pembayaran per bulan</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"></div>
+          <p class="feature-name">Sabuk</p>
+          <p class="feature-desc">Naikkan sabuk anggota dan simpan riwayat ujian</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────── -->
+  <div class="divider"></div>
+  <section class="section" id="cta">
+    <div class="section-inner reveal" style="text-align:center">
+      <p class="section-label">mulai sekarang</p>
+      <h2 class="section-title">SIAP KELOLA<br>DOJO KAMU?</h2>
+      <a href="pages/dashboard.html" class="cta-btn">Masuk ke Dashboard</a>
+    </div>
+  </section>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
