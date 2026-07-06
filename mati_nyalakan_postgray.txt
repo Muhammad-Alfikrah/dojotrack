@@ -1,8 +1,0 @@
-cara stop
-pg_ctl -D "D:\PosyGray\data" stop
-
-cara  nyalakan
-pg_ctl -D "D:\PosyGray\data" start
-
-cara cek status
-pg_ctl -D "D:\PosyGray\data" status
